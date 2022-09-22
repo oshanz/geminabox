@@ -5,11 +5,15 @@
 }
 
 
+rubygems.org:80 {
+	reverse_proxy http://geminabox:9292
+}
+
+192.168.69.1:80 {
+	reverse_proxy http://geminabox:9292
+}
+
 rubygems.org:443 {
 	reverse_proxy http://geminabox:9292
 	tls internal
-}
-
-:80 {
-	redir https://{host}{uri}
 }
