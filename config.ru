@@ -1,7 +1,7 @@
 require "rubygems"
 require "geminabox"
 
-Geminabox.data = "/data" # ... or wherever
+Geminabox.data = "/data" # docker volume
 
 Geminabox.rubygems_proxy = true
 Geminabox.allow_remote_failure = true

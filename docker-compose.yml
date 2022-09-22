@@ -8,7 +8,7 @@ services:
     ports:
       - "9292:9292"
     volumes:
-      - 'geminabox_data:/var/geminabox-data'
+      - 'geminabox_data:/data'
 
   caddy:
       image: 'docker.io/caddy/caddy:2.5.2-alpine'
