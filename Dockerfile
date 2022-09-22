@@ -1,6 +1,7 @@
 FROM ruby:3.1-bullseye
 
 RUN mkdir -p /app
+RUN mkdir -p /data
 WORKDIR /app
 
 COPY . /app
@@ -8,4 +9,4 @@ RUN bundle install --jobs=6
 
 EXPOSE 9292
 
-ENTRYPOINT ["rackup", "--host", "0.0.0.0"]
+ENTRYPOINT ["rackup", "-s", "puma", "--host", "0.0.0.0"]

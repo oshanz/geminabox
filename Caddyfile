@@ -1,0 +1,15 @@
+{
+    admin off
+	debug
+	local_certs
+}
+
+
+rubygems.org:443 {
+	reverse_proxy http://geminabox:9292
+	tls internal
+}
+
+:80 {
+	redir https://{host}{uri}
+}
