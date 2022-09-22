@@ -9,4 +9,4 @@ RUN bundle install --jobs=6
 
 EXPOSE 9292
 
-ENTRYPOINT ["rackup", "-s", "puma", "--host", "0.0.0.0"]
+ENTRYPOINT [ "puma", "-b", "tcp://0.0.0.0:9292" ]
