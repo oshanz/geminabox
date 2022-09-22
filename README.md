@@ -11,7 +11,26 @@ docker-compose -f docker-compose.yml build
 docker-compose -f docker-compose.yml up
 ```
 
-3. install root certificate
+3. add entry to the vm hosts file
+```bash
+ssh ubuntu
+sudo vi /etc/hosts
+192.168.69.1 rubygems.org
+```
+
+## without ssl
+
+1. change the Gemfile source from https to http
+```ruby
+#source 'http://rubygems.org'
+source 'http://rubygems.org'
+```
+
+2. now do a bundle install
+
+### ssl flow - error prone
+
+1. install root certificate
 - copy from the container
 ```bash
 docker cp geminabox-caddy-1:/data/caddy/pki/authorities/local/root.crt ~/Desktop/
@@ -26,9 +45,3 @@ ssh ubuntu
 sudo update-ca-certificates
 ```
 
-4. add entry to the hosts file
-```bash
-ssh ubuntu
-sudo vi /etc/hosts
-192.168.69.1 rubygems.org
-```
